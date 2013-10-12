@@ -17,18 +17,19 @@ namespace reactor
 	// getters
 	// NOTE the const after each
 	double GetReactionRate( void ) const { return reaction_rate; };
-	double GetReactionProduct( void ) const { return reaction_product; };
-	std::vector<Species> GetReactants( void ) const { return reactants; };
+	const std::vector< Species > & GetReactants( void ) const { return reactants; };	// return reference to reactants vector
+	const std::vector< Species > & GetReactionProducts( void ) const { return products; };	// return reference to reactants vector
 
 	// setters
 	void SetReactionRate( double input_rate ){ reaction_rate = input_rate; };
-	void AddReactants( Species new_reactant );
+	void AddReactants( Species & new_reactant );
+	void AddProducts( Species & new_product);
 
   private:
  	
 	double reaction_rate;	
-	double reaction_product;	
-	std::vector<Species> reactants;
+	std::vector<Species>  reactants;	// why is this not a std::vector<Species> &   ? 
+	std::vector<Species>  products;
                           
   };
 }
