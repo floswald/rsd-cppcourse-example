@@ -6,6 +6,15 @@
 
 
 // Constructors
+reactor::Reaction::Reaction( double input_rate ) :
+	reaction_rate( input_rate )
+{
+}
+
+reactor::Reaction::Reaction( void ) :
+	reaction_rate( 1.1 )
+{
+}
 
 // member functions of Species
 

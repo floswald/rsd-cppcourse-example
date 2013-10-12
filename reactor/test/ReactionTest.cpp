@@ -4,12 +4,18 @@
 
 using namespace reactor;
 
+// Test wheter can set rate
 TEST(ReactionTest, CanSetRate) { 
   Reaction R;
   R.SetReactionRate( 1.1 );
   EXPECT_EQ( 1.1 , R.GetReactionRate());
 }
 
+// Test constructor with argument
+TEST(ReactionTest, ConstructorWorks) { 
+  Reaction R(1.1);
+  EXPECT_EQ( 1.1 , R.GetReactionRate());
+}
 
 
 int main(int argc, char **argv) { // A main function scaffold to call the tests

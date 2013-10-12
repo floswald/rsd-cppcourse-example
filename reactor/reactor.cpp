@@ -3,6 +3,7 @@
 #include <iostream> //Include standard library file which provides input and output capabilities ("print statements") 
 
 #include "Species.h" // Include our own library file for describing a reaction system
+#include "Reaction.h" 
 
 int main(int argument_count, char ** command_line_arguments) // Define the main function, which is the entry point to the program.
 { // C++ uses braces to start and end sections of code.
@@ -17,6 +18,8 @@ int main(int argument_count, char ** command_line_arguments) // Define the main 
   // To get a quote symbol into a string, escape it with a slash
   // << can be used to chain several outputs together, in this case, a literal string,
   // and the output from calling GetName()
+
+  reactor::Reaction myReaction;
 
   return 0; // Exit successfully.
 }

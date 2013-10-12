@@ -10,6 +10,8 @@ namespace reactor
   class Reaction {
   public:
 	// constructor(s)
+	Reaction( double input_rate );
+	Reaction( void );
 
 	// getters
 	// NOTE the const after each
