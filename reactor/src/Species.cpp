@@ -26,8 +26,8 @@ reactor::Species::Species(const std::string &input_name, double input_concentrat
 
 //const std::string & reactor::Species::GetName() const
 //{ 
-	//// a function whose return type is a standard string, with no input arguments
-	//// the ampersand and const will be explained later.
+	// a function whose return type is a standard string, with no input arguments
+	// the ampersand and const will be explained later.
 	//return name; // give the name variable result back
 //}
 

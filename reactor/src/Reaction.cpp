@@ -18,3 +18,4 @@ reactor::Reaction::Reaction( void ) :
 
 // member functions of Species
 
+void reactor::Reaction::AddReactants( reactor::Species new_reactant ){ reactants.push_back( new_reactant ); };
