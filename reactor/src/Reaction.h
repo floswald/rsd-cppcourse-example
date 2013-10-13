@@ -29,7 +29,7 @@ namespace reactor
 	void AddProducts( Species * new_product);
 
 	// other member functions
-	void AddFluxToRates( void );
+	void AddFluxToRates( double flux );
 
   private:
  	

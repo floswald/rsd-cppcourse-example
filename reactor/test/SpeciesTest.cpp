@@ -16,7 +16,7 @@ TEST(SpeciesTest, SpeciesHasAName) { // First argument is test group, second is 
   
 TEST(SpeciesTest, SpeciesHasADefaultConcentration) {
   Species mySpecies("SomeName"); 
-  EXPECT_EQ(0, mySpecies.GetConcentration()); 
+  EXPECT_EQ(1, mySpecies.GetConcentration()); 
 }
 
 TEST(SpeciesTest, SpeciesHasADefaultRate) { 
@@ -27,7 +27,7 @@ TEST(SpeciesTest, SpeciesHasADefaultRate) {
 // Test that we can set a concentration
 TEST(SpeciesTest, CanSetSpeciesConcentration) { // First argument is test group, second is test name
   Species mySpecies("SomeName"); // Create a species with a specified name
-  EXPECT_EQ(0, mySpecies.GetConcentration()); // check that default constructor initializes at zero concentration.
+  EXPECT_EQ(1, mySpecies.GetConcentration()); // check that default constructor initializes at zero concentration.
   mySpecies.SetConcentration(2.0);
   EXPECT_EQ(2.0, mySpecies.GetConcentration()); 
 }

@@ -34,4 +34,21 @@ double reactor::Reaction::GetFlux( void ) const {
 	return flux;
 }
 
-// Add Flux to 
+// Add Flux to Rates of changes of species: positive for products, negative for reactants
+void reactor::Reaction::AddFluxToRates( double flux ) {
+
+	// add flux as positive increment to rate of change of each elt in products vector
+	for (std::vector< reactor::Species * >::const_iterator elt  = products.begin();	// if method is const, iterator must be const as well
+			                                       elt != products.end();
+												   elt ++ ) {
+		(*elt)->ContributeToRateOfChange( flux );	
+	}
+
+	// add flux as negative increment to rate of change of each elt in reactants vector
+	for (std::vector< reactor::Species * >::const_iterator elt  = reactants.begin();	// if method is const, iterator must be const as well
+			                                       elt != reactants.end();
+												   elt ++ ) {
+		(*elt)->ContributeToRateOfChange( -flux );	
+	}
+
+}

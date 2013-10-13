@@ -10,7 +10,7 @@
 
 // Constructor No 1
 reactor::Species::Species(const std::string &input_name):
-    name(input_name), concentration(0), rate_of_change(1)
+    name(input_name), concentration(1), rate_of_change(1)
   {
     // do nothing
   }

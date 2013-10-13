@@ -12,10 +12,14 @@ protected:
     Reaction myReaction;
     Species calcium;
     Species hydrogen;
+    Species carbonate;
+    Species calcium_carbonate;
     ReactionTest():
-        myReaction(5.0),
-        calcium("Ca"),
-        hydrogen("H")
+        myReaction(5.0),	// all species initialized at default values: rate_of_change =1, concentration=1
+        calcium("Ca"),	// a "reactant"
+        hydrogen("H"),
+        carbonate("C"),
+        calcium_carbonate("Ca_C")	// a "product"
     {
     };
 };
@@ -39,6 +43,13 @@ TEST_F(ReactionTest, CanAddReactant){
 	myReaction.AddReactants( &calcium );
 	EXPECT_EQ("Ca", myReaction.GetReactants()[0]->GetName() );
 }
+
+// Test if we can add a product to Reaction
+TEST_F(ReactionTest, CanAddProduct){
+	myReaction.AddReactants( &calcium_carbonate );
+	EXPECT_EQ("Ca_C", myReaction.GetReactants()[0]->GetName() );
+}
+
 
 // Test if we can add two reactants to Reaction
 // NOTE: calcium is not preserved from previous test, because 
@@ -79,6 +90,20 @@ TEST_F(ReactionTest, CanGetFlux) {
 TEST_F(ReactionTest, ReferToOriginalSpecies) {
 	myReaction.AddReactants( &calcium );	// pass address of calcium to Reaction class
 	EXPECT_EQ( &calcium, myReaction.GetReactants()[0] );	// myReaction.GetReactants()[0] should return a pointer to... the address of calcium!
+}
+
+// Test whether can contribute Flux of reaction to the rate of change of products and reactants
+TEST_F(ReactionTest, ContributeFluxToRates){
+	myReaction.AddReactants( &calcium );
+	myReaction.AddReactants( &hydrogen );
+	myReaction.AddProducts( &calcium_carbonate );
+	// save current rates of change
+	double old_rate_ca = calcium.GetRateOfChange();
+	double old_rate_ca_ca = calcium_carbonate.GetRateOfChange();
+	// add flux to reactants and products
+	myReaction.AddFluxToRates( myReaction.GetFlux() );
+	EXPECT_EQ( -myReaction.GetFlux() + old_rate_ca, calcium.GetRateOfChange());
+	EXPECT_EQ(  myReaction.GetFlux() + old_rate_ca_ca, calcium_carbonate.GetRateOfChange());
 }
 
 
