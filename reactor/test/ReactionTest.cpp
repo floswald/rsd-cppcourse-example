@@ -50,6 +50,34 @@ TEST_F(ReactionTest, CanAddSecondReactant){
 	EXPECT_EQ("H", myReaction.GetReactants()[1].GetName() );
 }
 
+// Test whether can add reactants and get concentrations out of reaction object
+TEST_F(ReactionTest, CanGetConcentrationFromReaction) {
+	// set a concentration rate for both reactants
+	calcium.SetConcentration( 1.5 );
+	hydrogen.SetConcentration( 1.0 );
+	// add to myReaction
+	myReaction.AddReactants( calcium );
+	myReaction.AddReactants( hydrogen );
+	EXPECT_EQ(1.5 , myReaction.GetReactants()[0].GetConcentration() );
+	EXPECT_EQ(1.0 , myReaction.GetReactants()[1].GetConcentration() );
+}
+
+// Test whether flux computes correctly
+TEST_F(ReactionTest, CanGetFlux) {
+	// set a concentration rate for both reactants
+	calcium.SetConcentration( 1.5 );
+	hydrogen.SetConcentration( 1.0 );
+	// add to myReaction
+	myReaction.AddReactants( calcium );
+	myReaction.AddReactants( hydrogen );
+	// compute flux = reaction_rate * concentration1 * concentration2
+	EXPECT_EQ( 5.0 * 1.5 * 1.0 , myReaction.GetFlux() );
+}
+
+
+
+
+
 
 
 // Tests outside of fixture

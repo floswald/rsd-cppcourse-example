@@ -14,14 +14,17 @@ namespace reactor
 	Reaction( double input_rate );
 	Reaction( void );
 
-	// getters
-	// NOTE the const after each
-	double GetReactionRate( void ) const { return reaction_rate; };
+	// getters inline
+	const double GetReactionRate( void ) const { return reaction_rate; };		// note const
 	const std::vector< Species > & GetReactants( void ) const { return reactants; };	// return reference to reactants vector
 	const std::vector< Species > & GetReactionProducts( void ) const { return products; };	// return reference to reactants vector
+	// getters virtual
+	// notice that there is no const after closing bracket!
+	double GetFlux( void ) const ;
 
-	// setters
+	// setters inline
 	void SetReactionRate( double input_rate ){ reaction_rate = input_rate; };
+	// setters virtual
 	void AddReactants( Species & new_reactant );
 	void AddProducts( Species & new_product);
 
