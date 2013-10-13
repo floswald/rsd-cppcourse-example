@@ -10,24 +10,21 @@
 
 // Constructor No 1
 reactor::Species::Species(const std::string &input_name):
-    name(input_name), concentration(0)
+    name(input_name), concentration(0), rate_of_change(1)
   {
     // do nothing
   }
 
 // Constructor No 2
 reactor::Species::Species(const std::string &input_name, double input_concentration):
-    name(input_name), concentration(input_concentration)
+    name(input_name), concentration(input_concentration), rate_of_change(1)
   {
     // do nothing
   }
 
-// member functions of Species
-
-//const std::string & reactor::Species::GetName() const
-//{ 
-	// a function whose return type is a standard string, with no input arguments
-	// the ampersand and const will be explained later.
-	//return name; // give the name variable result back
-//}
-
+// Constructor No 3
+reactor::Species::Species(const std::string &input_name, double input_concentration, double input_rate_of_change):
+    name(input_name), concentration(input_concentration), rate_of_change(input_rate_of_change)
+  {
+    // do nothing
+  }

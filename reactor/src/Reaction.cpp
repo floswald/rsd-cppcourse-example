@@ -34,3 +34,4 @@ double reactor::Reaction::GetFlux( void ) const {
 	return flux;
 }
 
+// Add Flux to 

@@ -28,6 +28,9 @@ namespace reactor
 	void AddReactants( Species * new_reactant );
 	void AddProducts( Species * new_product);
 
+	// other member functions
+	void AddFluxToRates( void );
+
   private:
  	
 	double reaction_rate;	
