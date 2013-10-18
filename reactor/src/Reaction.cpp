@@ -52,3 +52,31 @@ void reactor::Reaction::AddFluxToRates( double flux ) {
 	}
 
 }
+
+//implement outputter to cout
+std::ostream & operator<<(std::ostream &s, const reactor::Reaction& reaction) {
+
+	std::vector<reactor::Species * >  reactants = reaction.GetReactants();
+	std::vector<reactor::Species * >::iterator it;
+
+	std::vector<reactor::Species * >  products = reaction.GetReactionProducts();
+
+	std::ostringstream out;
+	out << "Reaction contains REACTANTS: ";
+	for (it=reactants.begin();it!=--reactants.end();it++){
+										   
+		out << " + " << (*it)->GetName();
+	}
+	out << std::endl;
+
+	out << "Reaction contains PRODUCTS: ";
+	for (it=reactants.begin();it!=--reactants.end();it++){
+										   
+		out << " + " << (*it)->GetName();
+	}
+	out << std::endl;
+	out << "end of outputter." << std::endl;
+
+	return out;
+}
+

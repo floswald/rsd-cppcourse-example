@@ -26,6 +26,8 @@ namespace reactor
     void   ResetConcentration( void ) {concentration = 0;};
     void   ContributeToRateOfChange( double flux ) { rate_of_change += flux ;};
 
+	// other member functions
+
   private:
     std::string name; // A member variable for the class to store the name of the system.
     double concentration;

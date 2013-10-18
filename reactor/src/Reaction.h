@@ -1,6 +1,7 @@
 
 #include "Species.h"	// include the Species class
 #include <vector>
+#include <ostream>
 
 #ifndef ONCE_REACTION_H
 #define ONCE_REACTION_H
@@ -31,6 +32,7 @@ namespace reactor
 	// other member functions
 	void AddFluxToRates( double flux );
 
+
   private:
  	
 	double reaction_rate;	
@@ -39,5 +41,7 @@ namespace reactor
                           
   };
 }
+
+std::ostream & operator<<(std::ostream &s, const reactor::Reaction& reaction);
 
 #endif //ONCE_REACTION_H
