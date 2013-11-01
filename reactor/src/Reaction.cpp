@@ -54,14 +54,16 @@ void reactor::Reaction::AddFluxToRates( double flux ) {
 }
 
 //implement outputter to cout
-std::ostream & operator<<(std::ostream &s, const reactor::Reaction& reaction) {
+// 1) NOTICE: this is defined outside the class!
+// 2) notice how you write into the INPUT argument stream, which is passed as a reference
+// you do not create a new stream object inside the outputter
+std::ostream & operator<<(std::ostream &out, const reactor::Reaction& reaction) {
 
 	std::vector<reactor::Species * >  reactants = reaction.GetReactants();
 	std::vector<reactor::Species * >::iterator it;
 
 	std::vector<reactor::Species * >  products = reaction.GetReactionProducts();
 
-	std::ostringstream out;
 	out << "Reaction contains REACTANTS: ";
 	for (it=reactants.begin();it!=--reactants.end();it++){
 										   
@@ -70,7 +72,7 @@ std::ostream & operator<<(std::ostream &s, const reactor::Reaction& reaction) {
 	out << std::endl;
 
 	out << "Reaction contains PRODUCTS: ";
-	for (it=reactants.begin();it!=--reactants.end();it++){
+	for (it=products.begin();it!=--products.end();it++){
 										   
 		out << " + " << (*it)->GetName();
 	}

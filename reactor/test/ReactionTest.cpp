@@ -107,6 +107,14 @@ TEST_F(ReactionTest, ContributeFluxToRates){
 }
 
 
+// Test whether outputter works as expected
+//TEST_F(ReactionTest, OutputterWorks){
+	//myReaction.AddReactants( &calcium );
+	//myReaction.AddReactants( &hydrogen );
+	//myReaction.AddProducts( &calcium_carbonate );
+
+	//}
+
 
 
 

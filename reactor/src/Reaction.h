@@ -1,7 +1,9 @@
 
 #include "Species.h"	// include the Species class
 #include <vector>
-#include <ostream>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 #ifndef ONCE_REACTION_H
 #define ONCE_REACTION_H

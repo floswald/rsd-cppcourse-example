@@ -1,6 +1,5 @@
 // We write comments like this
 
-#include <iostream> //Include standard library file which provides input and output capabilities ("print statements") 
 
 #include "Species.h" // Include our own library file for describing a reaction system
 #include "Reaction.h" 
@@ -20,6 +19,15 @@ int main(int argument_count, char ** command_line_arguments) // Define the main 
   // and the output from calling GetName()
 
   reactor::Reaction myReaction;
+  myReaction.AddReactants( &calcium );
+  myReaction.AddProducts( &calcium );
+
+  std::cout << "name in reaction " << myReaction.GetReactants()[0]->GetName() << std::endl;
+
+  std::ostringstream output_buffer;
+  output_buffer << myReaction;
+
+  std::cout << output_buffer.str() ;
 
   return 0; // Exit successfully.
 }
